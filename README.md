@@ -81,6 +81,8 @@ You now have:
 
 ## ⁉️ How to use
 
+> ℹ️ Use `/caveman` only **once** at the begin of a new chat. No need to use it on every prompt!
+
 Manual prompt:
 
 ```text
