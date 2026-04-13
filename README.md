@@ -34,24 +34,54 @@ Use this when you want:
 - caveman mode active by default in this repo
 - `normal mode` or `stop caveman` to turn it off for current conversation
 
-Important:
+⚠️**Important:**
 
 - this is **repository-wide**, not global across all projects
 - prompt files are manual tools; `copilot-instructions.md` is better for always-on behavior
 - in VS Code, make sure instruction files are enabled in settings
 
+❌ **If always-on mode is not needed:**
+- remove the `copilot-instructions.md` from your repository
+- use `/caveman` manually on every new chat
+
 ## VS Code setup ✅
 
 VS Code has first-class support for prompt files.
 
-### Option 1: Use this repository directly
+### Option 1: Install it as a user prompt for all projects
 
-If this repository is already open in VS Code:
+If you want `caveman` available in every workspace:
 
-1. Open Copilot Chat.
-2. Type `/` in chat.
-3. Look for `caveman` in slash-command suggestions.
-4. Run it like this:
+1. Open VS Code.
+2. Run `Chat: New Prompt File` from Command Palette.
+3. Choose **User** location.
+4. Name file `caveman.prompt.md`.
+5. Copy contents of [`.github/prompts/caveman.prompt.md`](./.github/prompts/caveman.prompt.md) into that file.
+
+After that, `/caveman` is available across your VS Code profile. 🔥
+
+
+### Option 2: Copy `.github/` directory into your repository
+
+1. Clone this repository:
+
+```bash
+git clone --depth 1 git@github.com:Mijutra/caveman-copilot.git
+```
+
+2. Copy `.github/` into your repository root:
+
+```bash
+cp -r caveman-copilot/.github /path/to/your-repo/
+```
+
+3. Reopen or refresh your repository in VS Code.
+4. You now have both:
+
+- `.github/prompts/caveman.prompt.md` → for manual `/caveman` usage
+- `.github/copilot-instructions.md` → for always-on caveman mode in this repo
+
+5. Run it like this:
 
 ```text
 /caveman
@@ -67,17 +97,6 @@ Or with level selection:
 
 Because the prompt file already lives in `.github/prompts`, VS Code can discover it as a workspace prompt.
 
-### Option 2: Install it as a user prompt for all projects
-
-If you want `caveman` available in every workspace:
-
-1. Open VS Code.
-2. Run `Chat: New Prompt File` from Command Palette.
-3. Choose **User** location.
-4. Name file `caveman.prompt.md`.
-5. Copy contents of [`.github/prompts/caveman.prompt.md`](./.github/prompts/caveman.prompt.md) into that file.
-
-After that, `/caveman` is available across your VS Code profile. 🔥
 
 ### Notes for VS Code
 
@@ -162,7 +181,10 @@ If you want one repo that works well everywhere, use both files:
 
 ## How to use prompt once installed 💬
 
-Examples:
+> ℹ️ Use `/caveman` only **once** at the begin of a new chat. No need to use it on every prompt!
+
+
+**Examples:**
 
 ```text
 /caveman
@@ -186,6 +208,7 @@ Behavior built into prompt:
 - supports `lite`, `full`, and `ultra`
 - keeps technical meaning while cutting filler
 - returns to normal when you say `stop caveman` or `normal mode`
+
 
 ## Why this repo exists
 
