@@ -47,14 +47,20 @@ Credit goes to [Julius Brussee](https://github.com/JuliusBrussee) and all contri
 
 Use this if you want `/caveman` in every workspace.
 
-1. Open VS Code.
-2. `Ctrl + Shift + P`
-2. Type `Chat: New Prompt File`.
-3. Choose location `User Data`.
-4. Name file `caveman.prompt.md`.
-5. Paste contents of [`.github/prompts/caveman.prompt.md`](./.github/prompts/caveman.prompt.md).
+Run from anywhere. Adjust the paths, if needed.
 
-Now `/caveman` works across your VS Code profile.
+1. Download caveman prompt file:
+```bash
+$ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/prompts/caveman.prompt.md -o ~/.config/Code/User/prompts/caveman.prompt.md
+```
+
+3. Download caveman instructions file for always-on mode:
+```bash
+$ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/prompts/caveman.instructions.md -o ~/.config/Code/User/prompts/caveman.instructions.md
+```
+
+
+Now `/caveman` works across your VS Code profile.  
 
 ### 2️⃣ Option 2: Download `.github/` files into repo
 
@@ -62,21 +68,21 @@ Now `/caveman` works across your VS Code profile.
 
 Use this if you want direct copy without cloning repo.
 
-Run from your repository root:
+1. Change directory to your repository root.
 
-1. Create prompts directory:
+2. Create prompts directory:
 ```bash
 $ mkdir -p .github/prompts
 ```
 
-2. Download caveman prompt file:
+3. Download caveman prompt file:
 ```bash
 $ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/prompts/caveman.prompt.md -o .github/prompts/caveman.prompt.md
 ```
 
-3. Download Copilot instructions for always-on mode:
+4. Download Copilot instructions for always-on mode:
 ```bash
-$ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/copilot-instructions.md -o .github/copilot-instructions.md
+$ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/prompts/caveman.instructions.md -o .github/copilot-instructions.md
 ```
 
 
