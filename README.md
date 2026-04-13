@@ -56,7 +56,33 @@ Use this if you want `/caveman` in every workspace.
 
 Now `/caveman` works across your VS Code profile.
 
-### Option 2: Copy `.github/` dir into repo
+### Option 2: Download `.github/` files into repo
+
+> See option 1, to use caveman prompt globally.
+
+Use this if you want direct copy without cloning repo.
+
+Run from your repository root:
+
+1. Create prompts directory:
+```bash
+$ mkdir -p .github/prompts
+```
+
+2. Download caveman prompt file:
+```bash
+$ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/prompts/caveman.prompt.md -o .github/prompts/caveman.prompt.md
+```
+
+3. Download Copilot instructions for always-on mode:
+```bash
+$ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/copilot-instructions.md -o .github/copilot-instructions.md
+```
+
+
+### Option 3: Clone repo
+
+> See option 1  to use caveman prompt globally.
 
 Use this if you want workspace prompt plus optional always-on mode.
 
@@ -72,12 +98,6 @@ git clone git@github.com:Mijutra/caveman-copilot.git
 cp -r caveman-copilot/.github /path/to/your-repo/
 ```
 
-3. Reopen or refresh workspace.
-
-You now have:
-
-- `.github/prompts/caveman.prompt.md` → for manual `/caveman`
-- `.github/copilot-instructions.md` → for default caveman mode in this repo
 
 ## ⁉️ How to use
 
