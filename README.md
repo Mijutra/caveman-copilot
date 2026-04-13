@@ -45,7 +45,7 @@ Credit goes to [Julius Brussee](https://github.com/JuliusBrussee) and all contri
 
 ### 1️⃣ Option 1: Use caveman globally in VS Code
 
-Use this if you want `/caveman` in every workspace.
+Use this if you want `/caveman` in every workspace. It will download the required files to VS Code's global config directory at ` ~/.config/Code/User/prompts/`.
 
 Run from anywhere. Adjust the paths, if needed.
 
@@ -66,7 +66,7 @@ Now `/caveman` works across your VS Code profile.
 
 > See option 1, to use caveman prompt globally.
 
-Use this if you want direct copy without cloning repo.
+Use this if you want direct copy without cloning repo.  It will download the required files to your local repository's GitHub directory at ` ~/.github/prompts/`.
 
 1. Change directory to your repository root.
 
