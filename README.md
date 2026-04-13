@@ -31,7 +31,7 @@ Credit goes to [Julius Brussee](https://github.com/JuliusBrussee) and all contri
 
 - [`.github/prompts/caveman.prompt.md`](./.github/prompts/caveman.prompt.md) 
     - slash-command prompt for VS Code
-- [`.github/copilot-instructions.md`](./.github/copilot-instructions.md)
+- [`.github/prompts/caveman.instructions.md`](./.github/prompts/caveman.instructions.md)
     - always-on caveman mode
 - [`README.md`](./README.md)
     - setup guide
@@ -53,14 +53,15 @@ Run from anywhere. Adjust the paths, if needed.
 ```bash
 $ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/prompts/caveman.prompt.md -o ~/.config/Code/User/prompts/caveman.prompt.md
 ```
+Now `/caveman` works in every repository.  
 
-3. Download caveman instructions file for always-on mode:
+
+2. **Optional:** Download caveman instructions file for always-on mode:
 ```bash
 $ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/prompts/caveman.instructions.md -o ~/.config/Code/User/prompts/caveman.instructions.md
 ```
+On every new chat, `caveman` prompt is automatically used in full mode.
 
-
-Now `/caveman` works across your VS Code profile.  
 
 ### 2️⃣ Option 2: Download `.github/` files into repo
 
@@ -79,12 +80,13 @@ $ mkdir -p .github/prompts
 ```bash
 $ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/prompts/caveman.prompt.md -o .github/prompts/caveman.prompt.md
 ```
+Now `/caveman` works in every repository.  
 
-4. Download Copilot instructions for always-on mode:
+4. **Optional:** Download Copilot instructions for always-on mode:
 ```bash
-$ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/prompts/caveman.instructions.md -o .github/copilot-instructions.md
+$ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/prompts/caveman.instructions.md -o .github/prompts/caveman.instructions.md
 ```
-
+On every new chat, `caveman` prompt is automatically used in full mode.
 
 ### 3️⃣ Option 3: Clone repo
 
@@ -103,19 +105,21 @@ git clone git@github.com:Mijutra/caveman-copilot.git
 ```bash
 cp -r caveman-copilot/.github /path/to/your-repo/
 ```
+Now `/caveman` works in every repository and on every new chat.
 
 
 ## ⁉️ How to use
 
 > ℹ️ Use `/caveman` only **once** at the begin of a new chat. No need to use it on every prompt!
 
-Manual prompt:
+> Manual prompt is not needed, if you use the [`.github/prompts/caveman.instructions.md`](./.github/prompts/caveman.instructions.md) for always on mode, because it is used automatically on every new chat.
 
+**Manual prompt on every new chat:**
 ```text
 /caveman
 ```
 
-Levels:
+**Adjust caveman levels of response:**
 
 ```text
 /caveman lite
@@ -123,13 +127,13 @@ Levels:
 /caveman ultra
 ```
 
-Turn off:
+**Turn off caveman:**
 
 ```text
 normal mode
 ```
 
-Prompt behavior:
+**Prompt behavior:**
 
 - default level is `full`
 - supports `lite`, `full`, `ultra`
@@ -138,22 +142,23 @@ Prompt behavior:
 
 ## 🔛 Always-on mode
 
-Use [`.github/copilot-instructions.md`](./.github/copilot-instructions.md) if you want caveman mode on by default for this repository.
+Use [`.github/prompts/caveman.instructions.md`](./.github/prompts/caveman.instructions.md) for caveman on every new chat.
 
 ⚠️ **Important:**
 - repo-wide, not global
 - better than running `/caveman` every new chat
-- in VS Code, instruction files must be enabled in settings
 
 ⛔ **If always-on mode not needed:**
-- remove `.github/copilot-instructions.md`
+- remove `caveman.instructions.md`
+  - **Local:** `.github/prompts/caveman.instructions.md`
+  - **User Data:** `~/.config/Code/User/prompts/caveman.instructions.md`
 - keep using `/caveman` manually
 
 ## 💻 IDE notes
 
 ### VS Code
 
-- prompt files belong in `.github/prompts` for workspace scope
+- prompt files belong in `.github/prompts` for workspace scope **or** in `~/.config/Code/User/prompts` for global scope
 - user prompts also work through Chat Customizations
 - if you open only subfolder, parent customization discovery may matter
 
@@ -168,7 +173,7 @@ Best path:
 3. Paste into GitHub Copilot custom instructions.
 4. Save.
 
-If you want repo-level reuse, keep adapted text in [`.github/copilot-instructions.md`](./.github/copilot-instructions.md).
+If you want repo-level reuse, keep adapted text in [`.github/prompts/caveman.instructions.md`](./.github/prompts/caveman.instructions.md).
 
 ### Other tools
 
@@ -188,7 +193,7 @@ Usually needs custom instructions:
 Safe cross-IDE pattern:
 
 1. Keep [`.github/prompts/caveman.prompt.md`](./.github/prompts/caveman.prompt.md) as source of truth.
-2. Mirror behavior into [`.github/copilot-instructions.md`](./.github/copilot-instructions.md) when tool supports repo instructions.
+2. Mirror behavior into [`.github/prompts/caveman.instructions.md`](./.github/prompts/caveman.instructions.md) when tool supports repo instructions.
 3. Use personal Copilot instructions when repo-level instructions do not fit.
 
 ## ⚙️ Why repo exists
