@@ -1,93 +1,93 @@
-# Caveman Prompt for GitHub Copilot 🪨
+<p align="center">
+  <img src="https://em-content.zobj.net/source/apple/391/rock_1faa8.png" width="120" />
+</p>
 
-This repository exists for one very practical reason: I did not want to install the original [caveman repository](https://github.com/JuliusBrussee/caveman) through NPM when the thing I actually needed for GitHub Copilot was only one Markdown prompt file.
+<h1 align="center">Caveman Prompt File<br>for GitHub Copilot</h1>
 
-So this repo keeps that part simple: grab [`.github/prompts/caveman.prompt.md`](./.github/prompts/caveman.prompt.md), drop it where your editor expects it, and use it.
+<p align="center">
+  <strong>why install when copy do trick</strong>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Mijutra/caveman-copilot/stargazers"><img src="https://img.shields.io/github/stars/Mijutra/caveman-copilot?style=flat&color=yellow" alt="Stars"></a>
+  <a href="https://github.com/Mijutra/caveman-copilot/commits/main"><img src="https://img.shields.io/github/last-commit/Mijutra/caveman-copilot?style=flat" alt="Last Commit"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/Mijutra/caveman-copilot?style=flat" alt="License"></a>
+</p>
+
+ I did not want to install the original [caveman repository](https://github.com/JuliusBrussee/caveman) through NPM when I only needed a simple Markdown prompt file.
+
+This repo keeps it simple: grab [`.github/prompts/caveman.prompt.md`](./.github/prompts/caveman.prompt.md), drop it where your editor expects it, and use it.
+
+----
+
+Caveman's original description:
+> A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill/plugin and Codex plugin that makes agent talk like caveman — cutting **~75% of output tokens** while keeping full technical accuracy. Now with 文言文 mode( wenyan-mode), [...] that cuts **~46% of input tokens** every session.
+
+> Based on the viral observation that caveman-speak dramatically reduces LLM token usage without losing technical substance. [...]
 
 Credit goes to [Julius Brussee](https://github.com/JuliusBrussee) and all contributors to the original project. This repo is only a lightweight guide and packaging of the prompt-file workflow. 🙌
 
-## What this repository contains
+## ⁉️ What is in repo
 
-- [`.github/prompts/caveman.prompt.md`](./.github/prompts/caveman.prompt.md): reusable GitHub Copilot prompt file
-- [`.github/copilot-instructions.md`](./.github/copilot-instructions.md): always-on caveman mode for this repository
-- [`README.md`](./README.md): setup guide for VS Code, JetBrains, and other IDEs
+- [`.github/prompts/caveman.prompt.md`](./.github/prompts/caveman.prompt.md) 
+    - slash-command prompt for VS Code
+- [`.github/copilot-instructions.md`](./.github/copilot-instructions.md)
+    - always-on caveman mode
+- [`README.md`](./README.md)
+    - setup guide
 
-## Quick answer
+## 🧠 Quick answer
 
-- **VS Code**: supports prompt files directly, so you can use `caveman.prompt.md` as intended
-- **JetBrains and most other IDEs**: do **not** currently use VS Code-style prompt files directly, so you should copy prompt content into Copilot custom instructions instead
+- **VS Code**: supports prompt files directly
+- **JetBrains and most other IDEs**: copy prompt text into Copilot custom instructions instead
 
-## Always-on mode 🔁
+## ⏩ Fast start
 
-If you want caveman mode on for every chat in this repository, use [`.github/copilot-instructions.md`](./.github/copilot-instructions.md).
+### Option 1: Use caveman globally in VS Code
 
-This file is repo-wide always-on instructions for GitHub Copilot. When this repository is open, Copilot can apply those instructions automatically to chat requests.
-
-Current setup in this repo:
-
-- [`.github/copilot-instructions.md`](./.github/copilot-instructions.md) tells Copilot to use caveman mode by default
-- [`.github/prompts/caveman.prompt.md`](./.github/prompts/caveman.prompt.md) is source of truth for caveman behavior
-
-Use this when you want:
-
-- no need to run `/caveman` every new chat
-- caveman mode active by default in this repo
-- `normal mode` or `stop caveman` to turn it off for current conversation
-
-⚠️**Important:**
-
-- this is **repository-wide**, not global across all projects
-- prompt files are manual tools; `copilot-instructions.md` is better for always-on behavior
-- in VS Code, make sure instruction files are enabled in settings
-
-❌ **If always-on mode is not needed:**
-- remove the `copilot-instructions.md` from your repository
-- use `/caveman` manually on every new chat
-
-## VS Code setup ✅
-
-VS Code has first-class support for prompt files.
-
-### Option 1: Install it as a user prompt for all projects
-
-If you want `caveman` available in every workspace:
+Use this if you want `/caveman` in every workspace.
 
 1. Open VS Code.
-2. Run `Chat: New Prompt File` from Command Palette.
-3. Choose **User** location.
+2. `Ctrl + Shift + P`
+2. Type `Chat: New Prompt File`.
+3. Choose location `User Data`.
 4. Name file `caveman.prompt.md`.
-5. Copy contents of [`.github/prompts/caveman.prompt.md`](./.github/prompts/caveman.prompt.md) into that file.
+5. Paste contents of [`.github/prompts/caveman.prompt.md`](./.github/prompts/caveman.prompt.md).
 
-After that, `/caveman` is available across your VS Code profile. 🔥
+Now `/caveman` works across your VS Code profile.
 
+### Option 2: Copy `.github/` dir into repo
 
-### Option 2: Copy `.github/` directory into your repository
+Use this if you want workspace prompt plus optional always-on mode.
 
-1. Clone this repository:
+1. Clone this repo:
 
 ```bash
-git clone --depth 1 git@github.com:Mijutra/caveman-copilot.git
+git clone git@github.com:Mijutra/caveman-copilot.git
 ```
 
-2. Copy `.github/` into your repository root:
+2. Copy `.github/` dir into your repo root:
 
 ```bash
 cp -r caveman-copilot/.github /path/to/your-repo/
 ```
 
-3. Reopen or refresh your repository in VS Code.
-4. You now have both:
+3. Reopen or refresh workspace.
 
-- `.github/prompts/caveman.prompt.md` → for manual `/caveman` usage
-- `.github/copilot-instructions.md` → for always-on caveman mode in this repo
+You now have:
 
-5. Run it like this:
+- `.github/prompts/caveman.prompt.md` → for manual `/caveman`
+- `.github/copilot-instructions.md` → for default caveman mode in this repo
+
+## ⁉️ How to use
+
+Manual prompt:
 
 ```text
 /caveman
 ```
 
-Or with level selection:
+Levels:
 
 ```text
 /caveman lite
@@ -95,62 +95,60 @@ Or with level selection:
 /caveman ultra
 ```
 
-Because the prompt file already lives in `.github/prompts`, VS Code can discover it as a workspace prompt.
+Turn off:
 
+```text
+normal mode
+```
 
-### Notes for VS Code
+Prompt behavior:
 
-- Prompt files belong in `.github/prompts` for workspace scope.
-- User-level prompt files can also be created from the Chat Customizations editor.
-- If you opened only a subfolder of a larger repo, you may need parent customization discovery enabled in VS Code.
+- default level is `full`
+- supports `lite`, `full`, `ultra`
+- keeps technical meaning, cuts filler
+- stops for current chat when you say `stop caveman` or `normal mode`
 
-## JetBrains setup 🧠
+## 🔛 Always-on mode
 
-JetBrains IDEs support GitHub Copilot custom instructions, but not VS Code prompt files in `.github/prompts` the same way.
+Use [`.github/copilot-instructions.md`](./.github/copilot-instructions.md) if you want caveman mode on by default for this repository.
 
-That means [`.github/prompts/caveman.prompt.md`](./.github/prompts/caveman.prompt.md) is still useful, but you will use its content as **instruction text**, not as native slash-command prompt file.
+⚠️ **Important:**
+- repo-wide, not global
+- better than running `/caveman` every new chat
+- in VS Code, instruction files must be enabled in settings
 
-### Recommended approach
+⛔ **If always-on mode not needed:**
+- remove `.github/copilot-instructions.md`
+- keep using `/caveman` manually
+
+## 💻 IDE notes
+
+### VS Code
+
+- prompt files belong in `.github/prompts` for workspace scope
+- user prompts also work through Chat Customizations
+- if you open only subfolder, parent customization discovery may matter
+
+### JetBrains
+
+JetBrains supports Copilot custom instructions better than VS Code-style prompt files.
+
+Best path:
 
 1. Open [`.github/prompts/caveman.prompt.md`](./.github/prompts/caveman.prompt.md).
-2. Copy the body of the prompt.
-3. In your JetBrains IDE, open GitHub Copilot custom instructions or personal instructions.
-4. Paste the prompt content there.
-5. Save.
+2. Copy prompt body.
+3. Paste into GitHub Copilot custom instructions.
+4. Save.
 
-Then you can trigger it with messages like:
+If you want repo-level reuse, keep adapted text in [`.github/copilot-instructions.md`](./.github/copilot-instructions.md).
 
-```text
-Use caveman mode.
-```
+### Other tools
 
-Or:
+Works directly as prompt file:
 
-```text
-Talk like caveman. Level: ultra.
-```
+- **VS Code**
 
-### Best JetBrains-friendly adaptation
-
-If you want repo-level reuse, create this file in your project:
-
-```text
-.github/copilot-instructions.md
-```
-
-Then paste adapted contents from [`.github/prompts/caveman.prompt.md`](./.github/prompts/caveman.prompt.md) into it.
-
-That gives GitHub Copilot a repo-wide instruction source that JetBrains understands much better than a VS Code-only prompt file.
-
-## Other IDEs and tools 🌍
-
-Support depends on editor.
-
-### Works directly as prompt file
-
-- **VS Code**: yes
-
-### Usually needs conversion into custom instructions
+Usually needs custom instructions:
 
 - **JetBrains IDEs**
 - **Visual Studio**
@@ -159,72 +157,23 @@ Support depends on editor.
 - **Copilot CLI**
 - **GitHub.com / web Copilot**
 
-For those, safest approach is:
+Safe cross-IDE pattern:
 
 1. Keep [`.github/prompts/caveman.prompt.md`](./.github/prompts/caveman.prompt.md) as source of truth.
-2. Copy its behavior into `.github/copilot-instructions.md` when your editor supports repository custom instructions.
-3. If repo instructions are not ideal for your workflow, paste same content into personal Copilot instructions instead.
+2. Mirror behavior into [`.github/copilot-instructions.md`](./.github/copilot-instructions.md) when tool supports repo instructions.
+3. Use personal Copilot instructions when repo-level instructions do not fit.
 
-## Suggested cross-IDE structure
+## ⚙️ Why repo exists
 
-If you want one repo that works well everywhere, use both files:
+Upstream project good. For GitHub Copilot prompt-file workflow, many people only need one Markdown file, not full package install.
 
-```text
-.github/
-├── prompts/
-│   └── caveman.prompt.md
-└── copilot-instructions.md
-```
-
-- `prompts/caveman.prompt.md` for VS Code slash-command usage
-- `copilot-instructions.md` for JetBrains and broader Copilot instruction support
-
-## How to use prompt once installed 💬
-
-> ℹ️ Use `/caveman` only **once** at the begin of a new chat. No need to use it on every prompt!
-
-
-**Examples:**
-
-```text
-/caveman
-```
-
-```text
-/caveman ultra
-```
-
-```text
-Use caveman mode for rest of this chat.
-```
-
-```text
-Normal mode.
-```
-
-Behavior built into prompt:
-
-- default level is `full`
-- supports `lite`, `full`, and `ultra`
-- keeps technical meaning while cutting filler
-- returns to normal when you say `stop caveman` or `normal mode`
-
-
-## Why this repo exists
-
-Original project is great. But for GitHub Copilot prompt-file usage, installing full package through NPM felt unnecessary when all that was needed was one Markdown file.
-
-This repository is for people who want simplest path:
+This repo keeps path small:
 
 - no package install
 - no runtime setup
-- no extra tooling
-- one prompt file
-- one guide
+- prompt file ready
+- repo instructions optional
 
-## Credits ❤️
+## 🎥 Credits
 
 Full credit for idea, prompt design, and original project goes to [Julius Brussee](https://github.com/JuliusBrussee) and contributors behind [caveman](https://github.com/JuliusBrussee/caveman).
-
-If you want full original project experience, use upstream repository.
-If you only want GitHub Copilot prompt-file workflow, this repo keeps that path small and obvious.
