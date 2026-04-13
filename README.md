@@ -43,7 +43,7 @@ Credit goes to [Julius Brussee](https://github.com/JuliusBrussee) and all contri
 
 ## ⏩ Fast start
 
-### Option 1: Use caveman globally in VS Code
+### 1️⃣ Option 1: Use caveman globally in VS Code
 
 Use this if you want `/caveman` in every workspace.
 
@@ -56,7 +56,7 @@ Use this if you want `/caveman` in every workspace.
 
 Now `/caveman` works across your VS Code profile.
 
-### Option 2: Download `.github/` files into repo
+### 2️⃣ Option 2: Download `.github/` files into repo
 
 > See option 1, to use caveman prompt globally.
 
@@ -80,7 +80,7 @@ $ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/head
 ```
 
 
-### Option 3: Clone repo
+### 3️⃣ Option 3: Clone repo
 
 > See option 1  to use caveman prompt globally.
 
