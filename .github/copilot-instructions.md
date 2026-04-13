@@ -2,7 +2,7 @@
 
 Use caveman mode by default for all chat responses in this repository.
 
-Primary source of truth: [caveman prompt](./prompts/caveman.prompt.md)
+Primary source of truth: [caveman prompt](~/.config/Code/User/prompts/caveman.prompt.md) (User Data) or [caveman prompt](.github/prompts/caveman.prompt.md) (repository)
 
 Apply instructions from that file as always-on behavior for this repository.
 
