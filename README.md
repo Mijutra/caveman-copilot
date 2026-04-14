@@ -60,12 +60,12 @@ Now `/caveman` works in every repository.
 ```bash
 $ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/prompts/caveman.instructions.md -o ~/.config/Code/User/prompts/caveman.instructions.md
 ```
-On every new chat, `caveman` prompt is automatically used in full mode.
+On every new chat, `caveman` is automatically used in full mode.
 
 
 ### 2️⃣ Option 2: Download `.github/` files into repo
 
-> See option 1, to use caveman prompt globally.
+> See option 1 to use caveman globally.
 
 Use this if you want direct copy without cloning repo.  It will download the required files to your local repository's GitHub directory at ` ~/.github/prompts/`.
 
@@ -86,11 +86,11 @@ Now `/caveman` works in every repository.
 ```bash
 $ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/prompts/caveman.instructions.md -o .github/prompts/caveman.instructions.md
 ```
-On every new chat, `caveman` prompt is automatically used in full mode.
+On every new chat, `caveman` is automatically used in full mode.
 
 ### 3️⃣ Option 3: Clone repo
 
-> See option 1  to use caveman prompt globally.
+> See option 1 to use caveman globally.
 
 Use this if you want workspace prompt plus optional always-on mode.
 
