@@ -41,12 +41,40 @@ Credit goes to [Julius Brussee](https://github.com/JuliusBrussee) and all contri
 - **VS Code**: supports prompt files directly
 - **JetBrains and most other IDEs**: copy prompt text into Copilot custom instructions instead
 
+## 🔧 Make shortcuts
+
+From this repo root:
+
+```bash
+make help
+make install-global
+make install-global-always-on
+make install-repo REPO_PATH=/path/to/your-repo
+make install-repo-always-on REPO_PATH=/path/to/your-repo
+```
+
+These commands copy the checked-in prompt files from [`.github/prompts`](./.github/prompts/) instead of downloading them again.
+
 ## ⏩ Fast start
 
 ### 1️⃣ Option 1: Use caveman globally in VS Code
 
+#### Automatic
 Use this if you want `/caveman` in every workspace. It will download the required files to VS Code's global config directory at ` ~/.config/Code/User/prompts/`.
 
+If you cloned this repo already, shortest path is:
+
+```bash
+$ make install-global
+```
+
+Always-on mode:
+
+```bash
+$ make install-global-always-on
+```
+
+#### Manual
 Run from anywhere. Adjust the paths, if needed.
 
 1. Download caveman prompt file:
@@ -69,6 +97,20 @@ On every new chat, `caveman` is automatically used in full mode.
 
 Use this if you want direct copy without cloning repo.  It will download the required files to your local repository's GitHub directory at ` ~/.github/prompts/`.
 
+#### Automatic 
+If you are already inside this repo and want to copy files into another repo root, shortest path is:
+
+```bash
+$ make install-repo REPO_PATH=/path/to/your-repo
+```
+
+Always-on mode:
+
+```bash
+$ make install-repo-always-on REPO_PATH=/path/to/your-repo
+```
+
+#### Manual
 1. Change directory to your repository root.
 
 2. Create prompts directory:
@@ -94,6 +136,20 @@ On every new chat, `caveman` is automatically used in full mode.
 
 Use this if you want workspace prompt plus optional always-on mode.
 
+#### Automatic
+After clone, shortest path is:
+
+```bash
+$ make install-repo REPO_PATH=/path/to/your-repo
+```
+
+Always-on mode:
+
+```bash
+$ make install-repo-always-on REPO_PATH=/path/to/your-repo
+```
+
+#### Automatic
 1. Clone this repo:
 
 ```bash
