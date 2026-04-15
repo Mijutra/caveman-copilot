@@ -59,8 +59,9 @@ These commands copy the checked-in prompt files from [`.github/prompts`](./.gith
 
 ### 1️⃣ Option 1: Use caveman globally in VS Code
 
-#### Automatic
 Use this if you want `/caveman` in every workspace. It will download the required files to VS Code's global config directory at ` ~/.config/Code/User/prompts/`.
+
+#### Automatic
 
 If you cloned this repo already, shortest path is:
 
