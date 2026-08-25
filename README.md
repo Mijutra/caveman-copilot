@@ -59,7 +59,10 @@ These commands copy the checked-in prompt files from [`.github/prompts`](./.gith
 
 ### 1️⃣ Option 1: Use caveman globally in VS Code
 
-Use this if you want `/caveman` in every workspace. It will download the required files to VS Code's global config directory at ` ~/.config/Code/User/prompts/`.
+Use this if you want `/caveman` in every workspace. Files are installed in VS Code's platform-specific user prompts directory:
+
+- macOS: `~/Library/Application Support/Code/User/prompts/`
+- Linux: `~/.config/Code/User/prompts/`
 
 #### Automatic
 
@@ -78,16 +81,27 @@ $ make install-global-always-on
 #### Manual
 Run from anywhere. Adjust the paths, if needed.
 
+Set and create the user prompts directory:
+
+```bash
+if [ "$(uname -s)" = "Darwin" ]; then
+  export USER_PROMPTS_DIR="$HOME/Library/Application Support/Code/User/prompts"
+else
+  export USER_PROMPTS_DIR="$HOME/.config/Code/User/prompts"
+fi
+mkdir -p "$USER_PROMPTS_DIR"
+```
+
 1. Download caveman prompt file:
 ```bash
-$ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/prompts/caveman.prompt.md -o ~/.config/Code/User/prompts/caveman.prompt.md
+$ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/prompts/caveman.prompt.md -o "$USER_PROMPTS_DIR/caveman.prompt.md"
 ```
 Now `/caveman` works in every repository.  
 
 
 2. **Optional:** Download caveman instructions file for always-on mode:
 ```bash
-$ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/prompts/caveman.instructions.md -o ~/.config/Code/User/prompts/caveman.instructions.md
+$ curl -fsSL https://raw.githubusercontent.com/Mijutra/caveman-copilot/refs/heads/main/.github/prompts/caveman.instructions.md -o "$USER_PROMPTS_DIR/caveman.instructions.md"
 ```
 On every new chat, `caveman` is automatically used in full mode.
 
@@ -208,14 +222,15 @@ Use [`.github/prompts/caveman.instructions.md`](./.github/prompts/caveman.instru
 ⛔ **If always-on mode not needed:**
 - remove `caveman.instructions.md`
   - **Local:** `.github/prompts/caveman.instructions.md`
-  - **User Data:** `~/.config/Code/User/prompts/caveman.instructions.md`
+  - **macOS User Data:** `~/Library/Application Support/Code/User/prompts/caveman.instructions.md`
+  - **Linux User Data:** `~/.config/Code/User/prompts/caveman.instructions.md`
 - keep using `/caveman` manually
 
 ## 💻 IDE notes
 
 ### VS Code
 
-- prompt files belong in `.github/prompts` for workspace scope **or** in `~/.config/Code/User/prompts` for global scope
+- prompt files belong in `.github/prompts` for workspace scope, or in the platform-specific user prompts directory listed above for global scope
 - user prompts also work through Chat Customizations
 - if you open only subfolder, parent customization discovery may matter
 
