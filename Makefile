@@ -1,6 +1,12 @@
 SHELL := /bin/sh
 
+UNAME_S ?= $(shell uname -s)
+
+ifeq ($(UNAME_S),Darwin)
+USER_PROMPTS_DIR ?= $(HOME)/Library/Application Support/Code/User/prompts
+else
 USER_PROMPTS_DIR ?= $(HOME)/.config/Code/User/prompts
+endif
 REPO_PATH ?= .
 REPO_PROMPTS_DIR ?= $(REPO_PATH)/.github/prompts
 SOURCE_PROMPTS_DIR := .github/prompts
